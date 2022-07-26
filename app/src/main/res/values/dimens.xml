@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="number_text_side_paddings">4dp</dimen>
+    <dimen name="mode_layouts_top_margin">8dp</dimen>
+
+    <dimen name="dialog_chance_img_size">40dp</dimen>
+    <dimen name="restart_image_size">30dp</dimen>
+    <dimen name="chance_img_size">30dp</dimen>
+
+    <dimen name="sudoku_logo_height">250dp</dimen>
+    <dimen name="sudoku_logo_margin">64dp</dimen>
+
+    <dimen name="opening_fragment_button_text_size">20sp</dimen>
+    <dimen name="opening_fragment_button_elevation">16dp</dimen>
+    <dimen name="opening_fragment_button_corner_radius">24dp</dimen>
+    <dimen name="opening_fragment_buttons_layout_padding">32dp</dimen>
+
+    <dimen name="toolbar_go_back_button_padding">8dp</dimen>
+    <dimen name="toolbar_game_mode_text_size">24sp</dimen>
+
+    <dimen name="number_text_size">30sp</dimen>
+    <dimen name="time_counted_text_size">18sp</dimen>
+
+    <dimen name="key_elevation">8dp</dimen>
+
+</resources>

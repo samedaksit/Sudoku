@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Sudoku</string>
+
+    <string name="toolbar_game_mode_title">SUDOKU(%1$s)</string>
+
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+
+    <string name="delete">Sil</string>
+    <string name="failed_info_text">3 yanlış yaptınız</string>
+    <string name="watch_video_or_replay_text">Video izleyin ya da tekrar oynayın</string>
+    <string name="progress_will_be_lost_text">Oyundaki ilerlemeniz kaybedilecek.</string>
+    <string name="best_time_text">En iyi süre</string>
+
+    <string name="content_desc_sudoku_logo">Sudoku Logo</string>
+    <string name="content_desc_go_back_button">Go back</string>
+    <string name="content_desc_no_chance_image">No Chance Image</string>
+    <string name="content_desc_chance_image">Chance Image</string>
+    <string name="content_desc_restart_game_image">Restart Game Image</string>
+    <string name="content_desc_delete_button">Delete</string>
+    <string name="content_desc_edit_notes">Edit Notes</string>
+
+    <string name="mode_easy_text">KOLAY</string>
+    <string name="mode_medium_text">ORTA</string>
+    <string name="mode_hard_text">ZOR</string>
+    <string name="mode_expert_text">UZMAN</string>
+    <string name="restart_text">Yeniden Başlat</string>
+
+    <string name="new_game">Yeni Oyun</string>
+    <string name="get_extra_chance">Extra can kazan</string>
+    <string name="play_again">Tekrar Oyna</string>
+    <string name="continue_game_button">OYUNA DEVAM ET</string>
+    <string name="new_game_button">YENİ OYUN</string>
+    <string name="go_home_button">Anasayfaya Dön</string>
+</resources>

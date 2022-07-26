@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/openingFragment">
+    <fragment
+        android:id="@+id/openingFragment"
+        android:name="com.samedaksit.sudoku.view.OpeningFragment"
+        android:label="OpeningFragment">
+        <action
+            android:id="@+id/action_openingFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.samedaksit.sudoku.view.GameFragment"
+        android:label="GameFragment">
+        <argument
+            android:name="gameMode"
+            android:defaultValue="EASY"
+            app:argType="com.samedaksit.sudoku.model.Mode" />
+        <action
+            android:id="@+id/action_gameFragment_to_openingFragment"
+            app:destination="@id/openingFragment"
+            app:popUpTo="@id/openingFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="isNewGame"
+            android:defaultValue="NEW"
+            app:argType="com.samedaksit.sudoku.model.Newness" />
+    </fragment>
+</navigation>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="chanceLeft"
+            type="Integer" />
+
+        <variable
+            name="timeCounted"
+            type="Integer" />
+
+        <variable
+            name="editColor"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        tools:context=".view.GameFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_color"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/goBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="@string/content_desc_go_back_button"
+                    android:padding="@dimen/toolbar_go_back_button_padding"
+                    app:srcCompat="@drawable/arrow_back_24"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/gameModeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/default_text_color"
+                    android:textSize="@dimen/toolbar_game_mode_text_size"
+                    tools:text="GameMode" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/timeCountedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@{timeCounted.toString()}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/time_counted_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/chancesLayout"
+            app:layout_constraintStart_toStartOf="@+id/sudokuBoard"
+            app:layout_constraintTop_toTopOf="@+id/chancesLayout" />
+
+        <LinearLayout
+            android:id="@+id/chancesLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/oneChanceImage"
+                android:layout_width="@dimen/chance_img_size"
+                android:layout_height="@dimen/chance_img_size"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/content_desc_chance_image"
+                android:src="@{chanceLeft>=1 ? @drawable/favorite_filled_red : @drawable/favorite_border_red}" />
+
+            <ImageView
+                android:id="@+id/twoChanceImage"
+                android:layout_width="@dimen/chance_img_size"
+                android:layout_height="@dimen/chance_img_size"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/content_desc_chance_image"
+                android:src="@{chanceLeft>=2 ? @drawable/favorite_filled_red : @drawable/favorite_border_red}" />
+
+            <ImageView
+                android:id="@+id/threeChanceImage"
+                android:layout_width="@dimen/chance_img_size"
+                android:layout_height="@dimen/chance_img_size"
+                android:contentDescription="@string/content_desc_chance_image"
+                android:src="@{chanceLeft>=3 ? @drawable/favorite_filled_red : @drawable/favorite_border_red}" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/restartGame"
+            android:layout_width="@dimen/restart_image_size"
+            android:layout_height="@dimen/restart_image_size"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/content_desc_restart_game_image"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/chancesLayout"
+            app:layout_constraintEnd_toEndOf="@+id/sudokuBoard"
+            app:layout_constraintTop_toTopOf="@+id/chancesLayout"
+            app:srcCompat="@drawable/replay_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.samedaksit.sudoku.customview.SudokuBoardView
+            android:id="@+id/sudokuBoard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chancesLayout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sudokuBoard">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/editNotesCard"
+                android:layout_width="48dp"
+                android:layout_height="0dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:backgroundTint="@{editColor}"
+                android:elevation="@dimen/key_elevation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/editNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/content_desc_edit_notes"
+                    android:padding="8dp"
+                    android:src="@drawable/edit_note_24" />
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editNotesCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/numberOne"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/one"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberTwo"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/two"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberThree"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/three"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberFour"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/four"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberFive"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/five"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/editNotesCard"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <Button
+                    android:id="@+id/numberSix"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/six"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberSeven"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/seven"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberEight"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/eight"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <Button
+                    android:id="@+id/numberNine"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/key_elevation"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/nine"
+                    android:textColor="@color/number_text_color"
+                    android:textSize="@dimen/number_text_size" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/key_elevation">
+
+                    <ImageView
+                        android:id="@+id/deleteNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/delete"
+                        android:src="@drawable/close_24"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

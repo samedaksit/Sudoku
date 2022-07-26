@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/chanceLeftLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/chanceImage1"
+            android:layout_width="@dimen/dialog_chance_img_size"
+            android:layout_height="@dimen/dialog_chance_img_size"
+            android:contentDescription="@string/content_desc_no_chance_image"
+            app:srcCompat="@drawable/favorite_border_red" />
+
+        <ImageView
+            android:id="@+id/chanceImage2"
+            android:layout_width="@dimen/dialog_chance_img_size"
+            android:layout_height="@dimen/dialog_chance_img_size"
+            android:contentDescription="@string/content_desc_no_chance_image"
+            app:srcCompat="@drawable/favorite_border_red" />
+
+        <ImageView
+            android:id="@+id/chanceImage3"
+            android:layout_width="@dimen/dialog_chance_img_size"
+            android:layout_height="@dimen/dialog_chance_img_size"
+            android:contentDescription="@string/content_desc_no_chance_image"
+            app:srcCompat="@drawable/favorite_border_red" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/failedInfoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/failed_info_text"
+        android:textColor="@color/default_text_color"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/watch_video_or_replay_text" />
+
+    <Button
+        android:id="@+id/watchVideoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/button_color"
+        android:elevation="16dp"
+        android:fontFamily="sans-serif"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/get_extra_chance"
+        app:cornerRadius="32dp" />
+
+    <TextView
+        android:id="@+id/playAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        android:text="@string/play_again"
+        android:textColor="@color/default_text_color" />
+
+</LinearLayout>

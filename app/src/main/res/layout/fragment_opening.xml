@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isGameExisting"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color"
+        tools:context=".view.OpeningFragment">
+
+        <ImageView
+            android:id="@+id/sudokuLogo"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sudoku_logo_height"
+            android:layout_marginStart="@dimen/sudoku_logo_margin"
+            android:layout_marginTop="@dimen/sudoku_logo_margin"
+            android:layout_marginEnd="@dimen/sudoku_logo_margin"
+            android:contentDescription="@string/content_desc_sudoku_logo"
+            android:scaleType="fitXY"
+            android:src="@drawable/sudoku_512"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/opening_fragment_buttons_layout_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sudokuLogo">
+
+            <Button
+                android:id="@+id/continueGameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/button_color"
+                android:elevation="@dimen/opening_fragment_button_elevation"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/continue_game_button"
+                android:textSize="@dimen/opening_fragment_button_text_size"
+                android:visibility="@{isGameExisting ? View.VISIBLE : View.GONE}"
+                app:cornerRadius="@dimen/opening_fragment_button_corner_radius" />
+
+            <Button
+                android:id="@+id/newGameButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@{isGameExisting ? @color/white : @color/button_color}"
+                android:elevation="@dimen/opening_fragment_button_elevation"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/new_game_button"
+                android:textColor="@{isGameExisting ? @color/default_text_color : @color/white}"
+                android:textSize="@dimen/opening_fragment_button_text_size"
+                app:cornerRadius="@dimen/opening_fragment_button_corner_radius" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
